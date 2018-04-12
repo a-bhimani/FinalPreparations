@@ -1,4 +1,4 @@
-package finalprep.challenges.leetcode;
+package finalprep.challenges.leetcode.easy;
 
 import java.util.HashMap;
 import java.util.Map;

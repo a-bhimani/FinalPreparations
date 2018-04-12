@@ -1,4 +1,4 @@
-package finalprep.challenges.leetcode;
+package finalprep.challenges.leetcode.hard;
 
 import static java.lang.System.out;
 import java.util.ArrayList;
