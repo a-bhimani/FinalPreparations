@@ -4,7 +4,7 @@ package finalprep.challenges.leetcode.alternates;
  *
  * @author adb
  *
- * Brute Force O(M.N), KMP O(M+N)
+ * Brute Force : O(M.N), Knuth Morris Pratt : O(M+N)
  */
 public class Solution28_kmp{
 

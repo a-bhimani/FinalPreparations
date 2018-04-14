@@ -12,6 +12,6 @@ import finalprep.sorting.Sorter;
 public class FinalPreparations{
 
   public static void main(String[] args){
-    out.println(new Solution3().lengthOfLongestSubstring("abcabcbb"));
+
   }
 }

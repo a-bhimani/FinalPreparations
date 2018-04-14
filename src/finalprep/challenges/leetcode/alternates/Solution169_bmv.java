@@ -6,6 +6,8 @@ import java.util.Map;
 /**
  *
  * @author adb
+ *
+ * Bayer Moore Voting
  */
 public class Solution169_bmv{
 
