@@ -1,4 +1,4 @@
-package finalprep.challenges.leetcode.easy.test;
+package finalprep.challenges.leetcode.easy.tests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
