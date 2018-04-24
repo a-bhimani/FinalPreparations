@@ -20,6 +20,9 @@ public class FinalPreparations{
 //    new Solution88().merge(nums1, 7, nums2, 3);
 //    Sorter.PrintArray("sorted=", nums1);
 
-    out.println(new Solution3().lengthOfLongestSubstring("dvdf"));
+    //out.println(new Solution3().lengthOfLongestSubstring("dvdf"));
+    int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7};
+    new Solution189().rotate(nums, 3);
+    Sorter.PrintArray("", nums);
   }
 }
