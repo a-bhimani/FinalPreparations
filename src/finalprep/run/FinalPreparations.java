@@ -14,10 +14,12 @@ import finalprep.sorting.Sorter;
 public class FinalPreparations{
 
   public static void main(String[] args){
-    int[] nums1 = new int[]{2, 4, 6, 8, 0, 0, 0};
-    int[] nums2 = new int[]{3, 7, 8};
+//    int[] nums1 = new int[]{2, 4, 6, 8, 0, 0, 0};
+//    int[] nums2 = new int[]{3, 7, 8};
+//
+//    new Solution88().merge(nums1, 7, nums2, 3);
+//    Sorter.PrintArray("sorted=", nums1);
 
-    new Solution88().merge(nums1, 7, nums2, 3);
-    Sorter.PrintArray("sorted=", nums1);
+    out.println(new Solution3().lengthOfLongestSubstring("dvdf"));
   }
 }
