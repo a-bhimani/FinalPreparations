@@ -6,21 +6,27 @@ import java.util.Set;
 /**
  *
  * @author adb
+ *
+ * Use Kadanes for O(N)
  */
 public class Solution3{
 
   public int lengthOfLongestSubstring(String s){
     int ct = 0;
-    HashSet<Character> st = new HashSet<>();
 
-    for(int ix = 0; ix < s.length(); ix++){
-      Character c = s.charAt(ix);
+    for(int ix = 0; ix < s.length() - ct; ix++){
+      HashSet<Character> st = new HashSet<>();
 
-      if(st.contains(c)){
-        st.clear();
+      for(int jy = ix; jy < s.length(); jy++){
+        Character c = s.charAt(jy);
+
+        if(st.contains(c)){
+          break;
+        }
+
+        st.add(c);
       }
 
-      st.add(c);
       ct = (st.size() > ct) ? st.size() : ct;
     }
 
