@@ -1,32 +1,28 @@
 package finalprep.challenges.leetcode.easy;
 
+import java.util.HashMap;
+
 /**
  *
  * @author adb
  */
 public class Solution303{
 
-  private int[] nums;
+  private HashMap<Integer, Integer> mp = new HashMap<>();
 
   public Solution303(int[] nums){
-    this.nums = nums;
+    for(int ix = 0; ix < nums.length; ix++){
+      int sum = 0;
+
+      for(int jy = ix; jy < nums.length; jy++){
+        sum += nums[jy];
+        mp.put((Integer.toString(ix) + "," + Integer.toString(jy)).hashCode(), sum);
+      }
+    }
   }
 
   public int sumRange(int i, int j){
-    int sum = 0;
-
-    if(i > this.nums.length - 1 || j < 0){
-      return 0;
-    }
-
-    if(i >= j){
-      return (i > j) ? 0 : this.nums[i];
-    }
-
-    sum += this.nums[i] + this.nums[j];
-    sum += this.sumRange(++i, --j);
-
-    return sum;
+    return this.mp.getOrDefault((Integer.toString(i) + "," + Integer.toString(j)).hashCode(), 0);
   }
 }
 
