@@ -19,5 +19,7 @@ public class FinalPreparations{
 //
 //    new Solution88().merge(nums1, 7, nums2, 3);
 //    Sorter.PrintArray("sorted=", nums1);
+    Solution303 sol = new Solution303(new int[]{-2, 0, 3, -5, 2, -1});
+    out.println(sol.sumRange(2, 5));
   }
 }

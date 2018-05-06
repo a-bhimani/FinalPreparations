@@ -15,9 +15,16 @@ public class Solution303{
   public int sumRange(int i, int j){
     int sum = 0;
 
-    for(int ix = i; ix <= j; ix++){
-      sum += this.nums[ix];
+    if(i > this.nums.length - 1 || j < 0){
+      return 0;
     }
+
+    if(i >= j){
+      return (i > j) ? 0 : this.nums[i];
+    }
+
+    sum += this.nums[i] + this.nums[j];
+    sum += this.sumRange(++i, --j);
 
     return sum;
   }
