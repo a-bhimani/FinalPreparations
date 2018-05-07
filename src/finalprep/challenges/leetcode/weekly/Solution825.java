@@ -12,31 +12,41 @@ public class Solution825{
   public int numFriendRequests(int[] ages){
     int ct = 0;
     int recur = 1;
+    HashSet<Integer> hasRecurred = new HashSet<>();
     long startTime = System.nanoTime();
 
     Arrays.sort(ages);
 
     for(int ix = ages.length - 1; ix > 0; ix--){
       int ageA = ages[ix];
+      boolean isContained = false;
 
       for(int jy = ix - 1; jy >= 0; jy--){
         int ageB = ages[jy];
 
         if(ageA == ageB){
-          recur++;
-          //continue;
-        }
+          if(!hasRecurred.contains(ageB)){
+            isContained = true;
+            recur++;
 
-        if(recur > 1){
-          recur = 1;
-          ct += factorial(recur);
+          }
+          continue;
         }
 
         if(((0.5 * ageA) + 7) >= ageB){
-          break;
+          continue;
         }
 
         ct++;
+      }
+
+      if(isContained){
+        hasRecurred.add(ageA);
+      }
+
+      if(recur > 1){
+        ct += factorial(recur);
+        recur = 1;
       }
     }
 

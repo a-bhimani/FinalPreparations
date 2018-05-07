@@ -21,8 +21,11 @@ Explanation: Friend requests are made 17 -> 16, 18 -> 17.
 
 Example 3:
 Input: [20,30,100,110,120]
-Output:
+Output: 2
 Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
+
+Input: [73,106,39,6,26,15,30,100,71,35,46,112,6,60,110]
+Output: 30
 
 
 Notes:
