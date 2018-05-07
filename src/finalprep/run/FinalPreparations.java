@@ -2,6 +2,7 @@ package finalprep.run;
 
 import finalprep.challenges.leetcode.commons.ListNode;
 import static java.lang.System.out;
+import finalprep.challenges.leetcode.alternates.*;
 import finalprep.challenges.leetcode.easy.*;
 import finalprep.challenges.leetcode.medium.*;
 import finalprep.challenges.leetcode.weekly.*;
@@ -20,10 +21,5 @@ public class FinalPreparations{
 //
 //    new Solution88().merge(nums1, 7, nums2, 3);
 //    Sorter.PrintArray("sorted=", nums1);
-
-    Solution825 sol = new Solution825();
-    out.println(sol.numFriendRequests(new int[]{16, 16, 16}));
-    out.println(sol.numFriendRequests(new int[]{16, 17, 18}));
-    out.println(sol.numFriendRequests(new int[]{73, 106, 39, 6, 26, 15, 30, 100, 71, 35, 46, 112, 6, 60, 110}));
   }
 }

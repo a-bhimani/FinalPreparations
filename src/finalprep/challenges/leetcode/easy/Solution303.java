@@ -8,21 +8,20 @@ import java.util.HashMap;
  */
 public class Solution303{
 
-  private HashMap<Integer, Integer> mp = new HashMap<>();
+  private int[] sum;
 
   public Solution303(int[] nums){
-    for(int ix = 0; ix < nums.length; ix++){
-      int sum = 0;
+    int currSum = 0;
+    sum = new int[nums.length];
 
-      for(int jy = ix; jy < nums.length; jy++){
-        sum += nums[jy];
-        mp.put((Integer.toString(ix) + "," + Integer.toString(jy)).hashCode(), sum);
-      }
+    for(int ix = 0; ix < nums.length; ix++){
+      currSum += nums[ix];
+      sum[ix] = currSum;
     }
   }
 
   public int sumRange(int i, int j){
-    return this.mp.getOrDefault((Integer.toString(i) + "," + Integer.toString(j)).hashCode(), 0);
+    return sum[j] - ((i > 0) ? sum[i - 1] : 0);
   }
 }
 
