@@ -22,6 +22,7 @@ public class FinalPreparations{
 //    new Solution88().merge(nums1, 7, nums2, 3);
 //    Sorter.PrintArray("sorted=", nums1);
 
-    out.println(new Solution198().rob(new int[]{2, 1, 1, 2}));
+    //out.println(new Solution198().rob(new int[]{2, 1, 1, 2}));
+    out.println(new Solution121().maxProfit(new int[]{2, 1, 4}));
   }
 }
