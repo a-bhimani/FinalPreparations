@@ -54,4 +54,41 @@ public class Math{
 
     return b * a / gcd(a, b);
   }
+
+  public static int pow(int a, int x){
+    int result = 0;
+
+    if(x > 0){
+      int increment = a;
+      result = increment;
+
+      for(int ix = 1; ix < x; ix++){
+        for(int jy = 1; jy < a; jy++){
+          result += increment;
+        }
+
+        increment = result;
+      }
+    }else{
+      result = 1;
+    }
+
+    return result;
+  }
+
+  public static int pow_recurr(int a, int x){
+    if(x > 0){
+      return multiple(a, pow_recurr(a, x - 1));
+    }
+
+    return 1;
+  }
+
+  private static int multiple(int a, int x){
+    if(x > 0){
+      return a + multiple(a, x - 1);
+    }
+
+    return 0;
+  }
 }

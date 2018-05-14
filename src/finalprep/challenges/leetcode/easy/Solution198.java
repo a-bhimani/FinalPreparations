@@ -7,17 +7,26 @@ package finalprep.challenges.leetcode.easy;
 public class Solution198{
 
   public int rob(int[] nums){
-    int sumOdd = 0;
-    int sumEven = 0;
+    int[] sum;
 
-    for(int ix = 0; ix < nums.length; ix++){
-      if(ix % 2 == 0){
-        sumEven += nums[ix];
-      }else{
-        sumOdd += nums[ix];
+    if(nums.length == 0){
+      return 0;
+    }
+
+    sum = new int[nums.length];
+
+    if(nums.length >= 1){
+      sum[0] = nums[0];
+
+      if(nums.length >= 2){
+        sum[1] = Math.max(nums[0], nums[1]);
+      }
+
+      for(int ix = 2; ix < nums.length; ix++){
+        sum[ix] = Math.max(sum[ix - 1], sum[ix - 2] + nums[ix]);
       }
     }
 
-    return (sumOdd > sumEven) ? sumOdd : sumEven;
+    return sum[sum.length - 1];
   }
 }
