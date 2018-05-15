@@ -27,14 +27,24 @@ public class Solution92{
       prevNode = link;
 
       if(ix == m){
-        while(ix >= m && ix <= n){
+        ListNode reverseHead = null;
 
+        while(ix <= n && head != null){
+          ListNode pNode = reverseHead;
+
+          reverseHead = new ListNode(head.val);
+          reverseHead.next = pNode;
+          head = head.next;
           ix++;
         }
-      }
 
-      head = head.next;
-      ix++;
+        prevNode.next = reverseHead;
+
+      }else{
+
+        head = head.next;
+        ix++;
+      }
     }
 
     return firstHead;

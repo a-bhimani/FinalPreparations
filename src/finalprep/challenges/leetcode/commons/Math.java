@@ -91,4 +91,16 @@ public class Math{
 
     return 0;
   }
+
+  public static int getFibonacci(int n){
+    if(n == 1){
+      return 1;
+    }
+
+    if(n == 2){
+      return 1;
+    }
+
+    return getFibonacci(n - 1) + getFibonacci(n - 2);
+  }
 }
