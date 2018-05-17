@@ -5,6 +5,7 @@ import static java.lang.System.out;
 import finalprep.challenges.leetcode.alternates.*;
 import finalprep.challenges.leetcode.easy.*;
 import finalprep.challenges.leetcode.medium.*;
+import finalprep.challenges.leetcode.hard.*;
 import finalprep.challenges.leetcode.weekly.*;
 import finalprep.misc.LinkedListCopy;
 import finalprep.misc.StockSpanning;
