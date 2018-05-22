@@ -1,5 +1,6 @@
 package finalprep.challenges.leetcode.medium;
 
+import finalprep.challenges.leetcode.easy.Solution242;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,20 +19,12 @@ public class Solution49{
     for(int ix = 0; ix < strs.length; ix++){
       if(!angInfo[ix]){
         List<String> lstGrp = new ArrayList<>();
-        Map<Character, Integer> charSet = new HashMap<>();
 
         lstGrp.add(strs[ix]);
         angInfo[ix] = true;
 
-        for(int jy = 0; jy < strs[ix].length(); jy++){
-          Character ch = strs[ix].charAt(jy);
-          Integer ct = charSet.getOrDefault(ch, 0) + 1;
-
-          charSet.put(ch, ct);
-        }
-
         for(int jy = ix + 1; jy < strs.length; jy++){
-          if((strs[ix].length() == strs[jy].length()) && isAnagram(charSet, strs[jy])){
+          if(new Solution242().isAnagram(strs[ix], strs[jy])){
             lstGrp.add(strs[jy]);
             angInfo[jy] = true;
           }
@@ -42,23 +35,5 @@ public class Solution49{
     }
 
     return lstAng;
-  }
-
-  public boolean isAnagram(Map<Character, Integer> charSet, String t){
-    boolean b = true;
-
-    for(int ix = 0; ix < t.length(); ix++){
-      Character ch = t.charAt(ix);
-      Integer ct = charSet.getOrDefault(ch, 0) - 1;
-
-      if(ct == -1){
-        b = false;
-        break;
-      }else{
-        charSet.put(ch, ct);
-      }
-    }
-
-    return b;
   }
 }
