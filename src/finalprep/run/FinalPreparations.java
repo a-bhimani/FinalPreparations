@@ -56,12 +56,5 @@ public class FinalPreparations{
     m4.next = m5;
 
     //new Solution92().reverseBetween(m1, 2, 3).PrintR();
-    List<List<String>> nums = new Solution49().groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
-    for(List<String> n : nums){
-      for(String x : n){
-        out.print(x + ",");
-      }
-      out.println();
-    }
   }
 }

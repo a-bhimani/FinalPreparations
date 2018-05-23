@@ -2,9 +2,12 @@ package finalprep.challenges.leetcode.medium;
 
 import finalprep.challenges.leetcode.easy.Solution242;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -17,21 +20,33 @@ public class Solution49{
     boolean[] angInfo = new boolean[strs.length];
 
     for(int ix = 0; ix < strs.length; ix++){
-      if(!angInfo[ix]){
-        List<String> lstGrp = new ArrayList<>();
+      List<String> lstGrp;
+      char[] gChar;
+      Set<String> set = new HashSet<>();
 
-        lstGrp.add(strs[ix]);
-        angInfo[ix] = true;
+      if(angInfo[ix]){
+        continue;
+      }
 
-        for(int jy = ix + 1; jy < strs.length; jy++){
-          if(new Solution242().isAnagram(strs[ix], strs[jy])){
+      lstGrp = new ArrayList<>();
+      lstGrp.add(strs[ix]);
+      gChar = strs[ix].toCharArray();
+      Arrays.sort(gChar);
+      set.add(new String(gChar));
+
+      for(int jy = ix + 1; jy < strs.length; jy++){
+        if(strs[ix].length() == strs[jy].length()){
+          gChar = strs[jy].toCharArray();
+          Arrays.sort(gChar);
+
+          if(set.contains(new String(gChar))){
             lstGrp.add(strs[jy]);
             angInfo[jy] = true;
           }
         }
-
-        lstAng.add(lstGrp);
       }
+
+      lstAng.add(lstGrp);
     }
 
     return lstAng;
