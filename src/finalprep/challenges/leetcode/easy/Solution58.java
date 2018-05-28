@@ -7,18 +7,16 @@ package finalprep.challenges.leetcode.easy;
 public class Solution58{
 
   public int lengthOfLastWord(String s){
+    int ix = s.length() - 1;
     int str_length = 0;
 
-    for(int ix = s.length() - 1; ix >= 0; ix--){
-      if(s.charAt(ix) == ' '){
-        if(str_length > 0){
-          break;
-        }else{
-          str_length--;
-        }
-      }
+    while(ix >= 0 && s.charAt(ix) == ' '){
+      ix--;
+    }
 
+    while(ix >= 0 && s.charAt(ix) != ' '){
       str_length++;
+      ix--;
     }
 
     return str_length;

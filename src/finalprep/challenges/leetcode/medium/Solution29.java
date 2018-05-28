@@ -8,15 +8,22 @@ public class Solution29{
 
   public int divide(int dividend, int divisor){
     boolean isNegative = false;
-    int sum = 0;
     int ans = 0;
 
-    if(dividend == 0){
+    if(dividend == 0 || divisor == 0){
       return 0;
+    }
+
+    if(dividend == divisor){
+      return 1;
     }
 
     if(divisor == 1){
       return dividend;
+    }
+
+    if(divisor == -1){
+      return (dividend < 0) ? (0 - dividend) : dividend;
     }
 
     if(dividend < 0){
@@ -37,12 +44,11 @@ public class Solution29{
       isNegative = !isNegative;
     }
 
-    while(sum <= dividend){
-      sum += divisor;
+    while(divisor < dividend){
+      dividend -= divisor;
       ans++;
     }
 
-    ans = (sum == dividend) ? ans : ans - 1;
     return isNegative ? 0 - ans : ans;
   }
 }

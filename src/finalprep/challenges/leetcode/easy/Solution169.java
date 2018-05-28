@@ -13,14 +13,12 @@ public class Solution169{
     Map<Integer, Integer> cv = new HashMap<>();
 
     for(int ix = 0; ix < nums.length; ix++){
-      Integer count = cv.getOrDefault(nums[ix], 0);
+      Integer count = cv.getOrDefault(nums[ix], 0) + 1;
 
-      count++;
       if(count > nums.length / 2){
         return nums[ix];
       }
 
-      cv.remove(nums[ix]);
       cv.put(nums[ix], count);
     }
 
