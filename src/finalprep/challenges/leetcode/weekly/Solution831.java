@@ -69,7 +69,6 @@ public class Solution831{
           }
         }
 
-        System.out.println(jy);
         if(jy > 11){
           toReturn.insert(0, '+');
         }

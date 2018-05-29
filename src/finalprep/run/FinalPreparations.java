@@ -54,6 +54,11 @@ public class FinalPreparations{
     m3.next = m4;
     m4.next = m5;
 
+    int[] nums1 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int[] nums2 = new int[]{2, 3, 5, 6, 7, 10};
+
+    Sorter.PrintArray("", new Solution349().continuous_intersection(nums1, nums2));
+
     //out.print(new Solution29().divide(-2147483648, 2));
     //new Solution92().reverseBetween(m1, 2, 3).PrintR();
   }

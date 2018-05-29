@@ -18,6 +18,6 @@ public class Solution121{
       }
     }
 
-    return (diff > 0) ? diff : 0;
+    return diff;
   }
 }

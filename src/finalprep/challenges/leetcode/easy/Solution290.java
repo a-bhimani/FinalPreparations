@@ -43,4 +43,38 @@ public class Solution290{
 
     return true;
   }
+
+  public boolean wordPatternNew(String pattern, String str){
+    String[] arStr;
+    HashMap<Integer, String> mpPattern;
+
+    arStr = str.toLowerCase().split("\\W");
+    if(arStr.length != pattern.length()){
+      return false;
+    }
+
+    pattern = pattern.toLowerCase();
+    mpPattern = new HashMap();
+
+    for(int ix = 0; ix < pattern.length(); ix++){
+      int c = pattern.charAt(ix);
+      String val = arStr[ix];
+
+      if(mpPattern.containsValue(val)){
+        if(!mpPattern.containsKey(c)){
+          return false;
+        }
+      }
+
+      if(!mpPattern.containsKey(c)){
+        mpPattern.put(c, val);
+      }
+
+      if(!val.equals(mpPattern.get(c))){
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
