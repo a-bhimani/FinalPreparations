@@ -1,8 +1,9 @@
 package finalprep.run;
 
-import finalprep.challenges.leetcode.commons.ListNode;
+import finalprep.challenges.interviews.amazon.*;
 import static java.lang.System.out;
 import finalprep.challenges.leetcode.alternates.*;
+import finalprep.challenges.leetcode.commons.*;
 import finalprep.challenges.leetcode.easy.*;
 import finalprep.challenges.leetcode.medium.*;
 import finalprep.challenges.leetcode.hard.*;
@@ -53,6 +54,18 @@ public class FinalPreparations{
     m2.next = m3;
     m3.next = m4;
     m4.next = m5;
+
+    TreeNode b1 = new TreeNode(1);
+    TreeNode b2 = new TreeNode(2);
+    TreeNode b3 = new TreeNode(3);
+    TreeNode b4 = new TreeNode(4);
+    TreeNode b5 = new TreeNode(5);
+    b1.left = b2;
+    b1.right = b3;
+    b2.left = b4;
+    b2.right = b5;
+
+    SolutionPhone sol = new SolutionPhone();
 
     //out.print(new Solution29().divide(-2147483648, 2));
     //new Solution92().reverseBetween(m1, 2, 3).PrintR();
