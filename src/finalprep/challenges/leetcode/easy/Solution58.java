@@ -10,11 +10,11 @@ public class Solution58{
     int ix = s.length() - 1;
     int str_length = 0;
 
-    while(ix >= 0 && s.charAt(ix) == ' '){
+    while(ix >= 0 && Character.isSpaceChar(s.charAt(ix))){
       ix--;
     }
 
-    while(ix >= 0 && s.charAt(ix) != ' '){
+    while(ix >= 0 && !Character.isSpaceChar(s.charAt(ix))){
       str_length++;
       ix--;
     }

@@ -22,10 +22,10 @@ public class TreeBfs{
     this.root = root;
   }
 
-  public List<Integer> levelOrder(TreeNode node){
+  public List<Integer> levelOrder(){
     List<Integer> lstNums = new ArrayList<>();
 
-    if(node != null){
+    if(root != null){
       Queue<TreeNode> q = new LinkedList<>();
 
       q.add(root);

@@ -27,9 +27,11 @@ public class Solution2{
       if(head == null){
         head = currLink;
       }
+
       if(prevLink != null){
         prevLink.next = currLink;
       }
+
       prevLink = currLink;
 
       if(l1 != null){

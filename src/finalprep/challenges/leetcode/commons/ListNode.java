@@ -13,6 +13,20 @@ public class ListNode{
 
   }
 
+  public ListNode(int[] a){
+    if(a.length > 0){
+      this.val = a[0];
+      ListNode prevNode = this;
+
+      for(int ix = 1; ix < a.length; ix++){
+        ListNode currNode = new ListNode(a[ix]);
+
+        prevNode.next = currNode;
+        prevNode = currNode;
+      }
+    }
+  }
+
   public ListNode(int x){
     this.val = x;
   }

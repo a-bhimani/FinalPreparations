@@ -25,10 +25,10 @@ public class Solution69{
 
     while((i * i) <= x){
       i++;
-    }
 
-    if(i >= Integer.MAX_VALUE){
-      return Integer.MAX_VALUE;
+      if(i >= Integer.MAX_VALUE){
+        return Integer.MAX_VALUE;
+      }
     }
 
     return (int)i - 1;
