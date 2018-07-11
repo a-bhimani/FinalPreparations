@@ -25,7 +25,7 @@ public class Solution17{
     numMaps.put('9', new String[]{"w", "x", "y", "z"});
 
     for(int ix = 0; ix < digits.length(); ix++){
-      if(Character.isDigit(digits.charAt(ix)) && numMaps.containsKey((char)digits.charAt(ix))){
+      if(Character.isDigit(digits.charAt(ix)) && numMaps.containsKey(digits.charAt(ix))){
         String[] ca = numMaps.get(digits.charAt(ix));
 
         if(lstAns.isEmpty()){
