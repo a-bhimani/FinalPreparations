@@ -9,13 +9,13 @@ import java.util.List;
  *
  * @author adb
  */
-public class Solution94{
+public class Solution144{
 
-  public List<Integer> inorderTraversal(TreeNode root){
-    return new TreeDfs(root).InOrder();
+  public List<Integer> preorderTraversal(TreeNode root){
+    return new TreeDfs(root).PreOrder();
   }
 
-  public List<Integer> inorderTraversalLinear(TreeNode root){
+  public List<Integer> preorderTraversalLinear(TreeNode root){
 
     return null;
   }
