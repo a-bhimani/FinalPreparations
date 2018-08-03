@@ -12,7 +12,7 @@ public class Solution75{
     for(int kz = 0; kz <= jy;){
       int z = nums[kz];
 
-      switch(nums[kz]){
+      switch(z){
         case 0:
           nums[kz] = nums[ix];
           nums[ix] = z;
