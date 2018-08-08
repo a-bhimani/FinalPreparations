@@ -22,7 +22,6 @@ public class Solution112{
     }
 
     currSum += root.val;
-
     if((root.left == null) && (root.right == null)){
       if(currSum == target){
         return true;
