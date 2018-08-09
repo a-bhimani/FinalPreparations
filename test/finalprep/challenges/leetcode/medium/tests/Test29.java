@@ -24,6 +24,7 @@ public class Test29{
     assertEquals(sol.divide(2147483647, 2), 1073741823); //Time limit exceeds
     assertEquals(sol.divide(2, 2), 1);
     assertEquals(sol.divide(-2147483648, 2), -1073741824);
+    assertEquals(sol.divide(1, -1), -1);
   }
 
 }

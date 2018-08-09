@@ -9,6 +9,8 @@ public class Solution29{
   public int divide(int dividend, int divisor){
     boolean isNegative = false;
     int ans = 0;
+    long ldividend = 0;
+    long ldivisor = 0;
 
     if(dividend == 0 || divisor == 0){
       return 0;
@@ -22,33 +24,31 @@ public class Solution29{
       return dividend;
     }
 
+    isNegative = ((dividend < 0) && (divisor > 0)) || ((dividend > 0) && (divisor < 0));
+    ldividend = Math.abs((long)dividend);
+    ldivisor = Math.abs((long)divisor);
+
     if(divisor == -1){
-      return (dividend < 0) ? (0 - dividend) : dividend;
-    }
+      if(isNegative){
+        if(-ldividend < Integer.MIN_VALUE){
+          return Integer.MIN_VALUE;
+        }
 
-    if(dividend < 0){
-      if((0 - (long)dividend) > Integer.MAX_VALUE){
-        return Integer.MAX_VALUE;
+        return -dividend;
+      }else{
+        if(ldividend > Integer.MAX_VALUE){
+          return Integer.MAX_VALUE;
+        }
+
+        return Math.abs(dividend);
       }
-
-      dividend = 0 - dividend;
-      isNegative = !isNegative;
     }
 
-    if(divisor < 0){
-      if((0 - (long)divisor) > Integer.MAX_VALUE){
-        return Integer.MAX_VALUE;
-      }
-
-      divisor = 0 - divisor;
-      isNegative = !isNegative;
-    }
-
-    while(divisor < dividend){
-      dividend -= divisor;
+    while(ldivisor <= ldividend){
+      ldividend -= ldivisor;
       ans++;
     }
 
-    return isNegative ? 0 - ans : ans;
+    return isNegative ? -ans : ans;
   }
 }
