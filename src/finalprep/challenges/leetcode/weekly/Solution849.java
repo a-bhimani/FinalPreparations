@@ -18,7 +18,7 @@ public class Solution849{
         }
 
         dA = (int)Math.ceil((ix - jy) * ((jy == 0) || (ix == nSize) ? 1 : 0.5));
-        dB = (int)Math.ceil((j - i) * ((i == 0) || (j == nSize) ? 1 : 0.5));
+        dB = (int)Math.ceil((j - i) * ((i == 0) ? 1 : 0.5));
 
         if(dA > dB){
           i = jy;
