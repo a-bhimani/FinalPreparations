@@ -1,6 +1,6 @@
 package finalprep.challenges.leetcode.medium.tests;
 
-import finalprep.challenges.leetcode.medium.Solution50;
+import finalprep.challenges.leetcode.mathematical.medium.Solution50;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -1,6 +1,6 @@
 package finalprep.challenges.leetcode.easy.tests;
 
-import finalprep.challenges.leetcode.easy.Solution766;
+import finalprep.challenges.leetcode.matrix.easy.Solution766;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

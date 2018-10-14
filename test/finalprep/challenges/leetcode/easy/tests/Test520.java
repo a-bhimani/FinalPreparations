@@ -2,7 +2,7 @@ package finalprep.challenges.leetcode.easy.tests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import finalprep.challenges.leetcode.easy.Solution520;
+import finalprep.challenges.leetcode.strings.easy.Solution520;
 
 /**
  *

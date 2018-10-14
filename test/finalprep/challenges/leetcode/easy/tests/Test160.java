@@ -1,7 +1,7 @@
 package finalprep.challenges.leetcode.easy.tests;
 
 import finalprep.challenges.leetcode.commons.ListNode;
-import finalprep.challenges.leetcode.easy.Solution160;
+import finalprep.challenges.leetcode.linkedlists.easy.Solution160;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

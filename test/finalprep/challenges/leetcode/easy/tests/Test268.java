@@ -1,6 +1,6 @@
 package finalprep.challenges.leetcode.easy.tests;
 
-import finalprep.challenges.leetcode.easy.Solution268;
+import finalprep.challenges.leetcode.arrays.easy.Solution268;
 import finalprep.challenges.leetcode.alternates.Solution268_ArithmeticProgression;
 import org.junit.Test;
 import static org.junit.Assert.*;

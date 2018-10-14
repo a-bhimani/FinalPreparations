@@ -1,7 +1,7 @@
 package finalprep.challenges.leetcode.easy.tests;
 
 import finalprep.challenges.leetcode.commons.TreeNode;
-import finalprep.challenges.leetcode.easy.Solution572;
+import finalprep.challenges.leetcode.trees.easy.Solution572;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
