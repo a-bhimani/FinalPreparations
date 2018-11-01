@@ -1,6 +1,7 @@
 package finalprep.challenges.leetcode.arrays.easy;
 
-import finalprep.sorting.Sorter;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
@@ -9,29 +10,18 @@ import finalprep.sorting.Sorter;
 public class Solution189{
 
   public void rotate(int[] nums, int k){
-    int jy = nums.length - k;
-    int[] ksub = new int[jy > 0 ? jy : k];
+    Queue<Integer> qRotated = new LinkedList<>();
 
-    for(int ix = 0, kz = 0; ix < nums.length; ix++){
-      if(ix < ksub.length){
-        ksub[ix] = nums[ix];
-      }
+    for(int ix = nums.length - 1; ix >= 0; ix--){
+      qRotated.offer(nums[ix]);
+    }
 
-      if(ix < k){
-        if(jy < 0 || jy >= nums.length){
-          jy = 0;
-        }
+    for(int ix = 1; ix <= k; ix++){
+      qRotated.offer(qRotated.poll());
+    }
 
-        nums[ix] = nums[jy];
-        jy++;
-      }else{
-        if(kz < 0 || kz >= ksub.length){
-          kz = 0;
-        }
-
-        nums[ix] = ksub[kz];
-        kz++;
-      }
+    for(int ix = nums.length - 1; ix >= 0; ix--){
+      nums[ix] = qRotated.poll();
     }
   }
 }
