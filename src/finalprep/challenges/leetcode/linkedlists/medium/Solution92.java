@@ -1,6 +1,7 @@
 package finalprep.challenges.leetcode.linkedlists.medium;
 
 import finalprep.challenges.leetcode.commons.ListNode;
+import java.util.Stack;
 
 /**
  *
@@ -9,38 +10,52 @@ import finalprep.challenges.leetcode.commons.ListNode;
 public class Solution92{
 
   public ListNode reverseBetween(ListNode head, int m, int n){
-    ListNode prevNode = null;
+    int ix = 1;
     ListNode firstHead = null;
-    int ix = 0;
+    ListNode prevNode = null;
 
     while(head != null){
-      ListNode link = new ListNode(head.val);
-
-      if(firstHead == null){
-        firstHead = link;
-      }
-
-      if(prevNode != null){
-        prevNode.next = link;
-      }
-
-      prevNode = link;
+      Stack<Integer> stkRev = new Stack<>();
 
       if(ix == m){
-        ListNode reverseHead = null;
-
-        while(ix <= n && head != null){
-          ListNode pNode = reverseHead;
-
-          reverseHead = new ListNode(head.val);
-          reverseHead.next = pNode;
+        while(ix <= n){
+          stkRev.push(head.val);
           head = head.next;
           ix++;
         }
+      }
 
-        prevNode.next = reverseHead;
+      if(!stkRev.isEmpty()){
+        while(!stkRev.isEmpty()){
+          if(prevNode == null){
+            prevNode = new ListNode(stkRev.pop());
+          }else{
+            prevNode.next = new ListNode(stkRev.pop());
+          }
 
+          if(firstHead == null){
+            firstHead = prevNode;
+          }
+
+          if(prevNode.next != null){
+            prevNode = prevNode.next;
+          }
+        }
       }else{
+
+        if(prevNode == null){
+          prevNode = new ListNode(head.val);
+        }else{
+          prevNode.next = new ListNode(head.val);
+        }
+
+        if(firstHead == null){
+          firstHead = prevNode;
+        }
+
+        if(prevNode.next != null){
+          prevNode = prevNode.next;
+        }
 
         head = head.next;
         ix++;
