@@ -10,30 +10,54 @@ import java.util.Set;
 public class Solution475{
 
   public int findRadius(int[] houses, int[] heaters){
-    int minRad = 1;
-    Set<Integer> setHeaters = new HashSet<>();
+    boolean b1 = true, b2 = true;
+    int d = 0, ix = 0, jy = houses.length - 1;
 
-    for(int ix = 0; ix < heaters.length; ix++){
-      setHeaters.add(ix);
-    }
-
-    for(int ix = 0; ix < houses.length; ix++){
-      int init = ix;
-      int diff = 0;
-
-      while((ix < houses.length) && !setHeaters.contains(houses[ix])){
-        ix++;
+    while(ix < houses.length){
+      if(heaters[0] == houses[ix]){
+        b1 = false;
+        break;
       }
 
-      diff = ix - init;
-
-      if(init > 0 && init < (houses.length - 1)){
-        diff = (int)Math.ceil(diff * .5);
-      }
-
-      minRad = Math.max(minRad, diff);
+      ix++;
     }
 
-    return minRad;
+    while(jy >= 0){
+      if(heaters[heaters.length - 1] == houses[jy]){
+        b2 = false;
+        break;
+      }
+
+      jy--;
+    }
+
+    d = (ix - 0) > (houses.length - jy - 1) ? (ix - 0) : (houses.length - jy - 1);
+
+    if(b1 && b2){
+      return d + 1;
+    }
+
+    if(heaters.length > 1){
+      int kz = 1;
+
+      while((ix <= jy) && (kz < heaters.length)){
+        int d1 = 0;
+
+        while(ix <= jy){
+          if(houses[ix] == heaters[kz]){
+            break;
+          }
+
+          d1++;
+          ix++;
+        }
+
+        d1 = (int)Math.ceil(d1 / 2);
+        d = d1 > d ? d1 : d;
+        kz++;
+      }
+    }
+
+    return d;
   }
 }

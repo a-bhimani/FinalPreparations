@@ -15,5 +15,6 @@ public class Test35{
     Solution35 sol = new Solution35();
     assertEquals(sol.searchInsert(new int[]{1, 3, 5, 6}, 0), 0);
     assertEquals(sol.searchInsert(new int[]{1, 3, 5, 7}, 6), 3);
+    assertEquals(sol.searchInsert(new int[]{1, 3, 5, 6}, 2), 2);
   }
 }

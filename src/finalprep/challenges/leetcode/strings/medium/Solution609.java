@@ -14,7 +14,7 @@ public class Solution609{
 
   public List<List<String>> findDuplicate(String[] paths){
     Map<String, List<String>> mapFiles = new HashMap<>();
-    List<List<String>> lstRet = new ArrayList<>();
+    List<List<String>> lstRet;
     Iterator itr;
 
     for(int ix = 0; ix < paths.length; ix++){
@@ -34,6 +34,7 @@ public class Solution609{
     }
 
     itr = mapFiles.entrySet().iterator();
+    lstRet = new ArrayList<>();
 
     while(itr.hasNext()){
       List<String> lstNew = (List<String>)((Map.Entry)itr.next()).getValue();

@@ -15,10 +15,12 @@ public class Solution50{
 
       for(int ix = 1; ix < n; ix++){
         for(int jy = 1; jy < x; jy++){
+          System.out.print(increment + " ");
           result += increment;
         }
 
         increment = result;
+        System.out.println();
       }
     }else{
       result = 1;

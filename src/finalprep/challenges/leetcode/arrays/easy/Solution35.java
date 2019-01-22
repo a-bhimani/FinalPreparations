@@ -9,12 +9,20 @@ package finalprep.challenges.leetcode.arrays.easy;
 public class Solution35{
 
   public int searchInsert(int[] nums, int target){
-    int ix = nums.length - 1;
+    int ix = 0;
 
-    while(ix >= 0 && target <= nums[ix]){
-      --ix;
+    while(ix < nums.length){
+      if(target == nums[ix]){
+        return ix;
+      }
+
+      if(target < nums[ix]){
+        break;
+      }
+
+      ix++;
     }
 
-    return ix + 1;
+    return ix;
   }
 }

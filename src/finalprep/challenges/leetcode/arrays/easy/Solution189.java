@@ -16,6 +16,7 @@ public class Solution189{
       qRotated.offer(nums[ix]);
     }
 
+    k = k % nums.length;
     for(int ix = 1; ix <= k; ix++){
       qRotated.offer(qRotated.poll());
     }
