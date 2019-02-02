@@ -6,6 +6,7 @@ import finalprep.challenges.leetcode.alternates.*;
 import finalprep.challenges.leetcode.arrays.easy.*;
 import finalprep.challenges.leetcode.commons.*;
 import finalprep.challenges.leetcode.easy.*;
+import finalprep.challenges.leetcode.linkedlists.medium.*;
 import finalprep.challenges.leetcode.mathematical.medium.*;
 import finalprep.challenges.leetcode.matrix.medium.*;
 import finalprep.challenges.leetcode.strings.weekly.*;
