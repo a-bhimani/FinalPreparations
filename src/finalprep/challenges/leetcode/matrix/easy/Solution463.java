@@ -10,7 +10,7 @@ public class Solution463{
     for(int ix = 0; ix < grid.length; ix++){
       for(int jy = 0; jy < grid[ix].length; jy++){
         if(grid[ix][jy] == 1){
-          calcPerimeter(grid, ix, jy);
+          return calcPerimeter(grid, ix, jy);
         }
       }
     }
@@ -21,8 +21,12 @@ public class Solution463{
   private int calcPerimeter(int[][] g, int i, int j){
     int r = 0;
 
-    if(i < 0 || i >= g.length || j < 0 || j >= g[0].length || g[i][j] == 0){
-      return 1;
+    if(i < 0 || i >= g.length || j < 0 || j >= g[0].length || g[i][j] != 1){
+      if(g[i][j] == 0){
+        return 1;
+      }
+
+      return 0;
     }
 
     g[i][j] = 2;
