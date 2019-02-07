@@ -1,6 +1,8 @@
 package finalprep.challenges.leetcode.linkedlists.easy;
 
 import finalprep.challenges.leetcode.commons.ListNode;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -9,25 +11,17 @@ import finalprep.challenges.leetcode.commons.ListNode;
 public class Solution141{
 
   public boolean hasCycle(ListNode head){
-    ListNode slow;
-    ListNode fast;
+    Set<ListNode> setNodes = new HashSet<>();
 
-    if(head == null || head.next == null){
-      return false;
-    }
-
-    slow = head;
-    fast = head.next;
-
-    while(slow != fast){
-      if(fast == null || fast.next == null){
-        return false;
+    while(head != null){
+      if(setNodes.contains(head)){
+        return true;
       }
 
-      slow = slow.next;
-      fast = fast.next.next;
+      setNodes.add(head);
+      head = head.next;
     }
 
-    return true;
+    return false;
   }
 }
