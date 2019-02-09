@@ -1,5 +1,7 @@
 package finalprep.challenges.leetcode.arrays.easy;
 
+import java.util.Arrays;
+
 /**
  *
  * @author adb
@@ -7,34 +9,31 @@ package finalprep.challenges.leetcode.arrays.easy;
 public class Solution665{
 
   public boolean checkPossibility(int[] nums){
-    boolean b = false;
-    int li = -1;
+    int jy = 0, kz = 0;
+    int[] numsClone;
 
     if(nums.length <= 1){
       return true;
     }
 
-    for(int ix = 0, jy = nums.length - 1, m = 0; m <= nums.length; ix++, jy++, m++){
-      //System.out.println(nums[ix] + ">" + nums[jy]);
-      if(nums[ix] > nums[jy]){
-        if(b && (li != ix)){
-          return false;
-        }
+    numsClone = Arrays.copyOf(nums, nums.length);
 
-        b = true;
-        li = ix;
+    for(int ix = 0; ix < nums.length; ix++){
+      numsClone[ix] = nums[ix];
+    }
 
-        //if(ix == 0){
-        nums[ix] = nums[jy] - 1;
-        //}
+    for(int ix = 1, la = nums.length - 2; ix < numsClone.length; ix++, la--){
+      if(numsClone[ix] < numsClone[ix - 1]){
+        numsClone[ix] = numsClone[ix - 1];
+        jy++;
       }
 
-      if(jy >= nums.length - 1){
-        ix = -1;
-        jy = 0;
+      if(nums[la + 1] < nums[la]){
+        nums[la] = nums[la + 1];
+        kz++;
       }
     }
 
-    return true;
+    return (jy <= 1) || kz == 1;
   }
 }
