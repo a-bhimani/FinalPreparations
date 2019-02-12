@@ -19,7 +19,7 @@ public class Solution766{
       return true;
     }
 
-    for(int m = k - 1, n = matrix[0].length - 1; (m >= 0) || (n >= 0); m--, n--){
+    for(int m = k - 1, n = l - 1; (m >= 0) || (n >= 0); m--, n--){
       int i = 0;
       int j = 0;
 
@@ -29,7 +29,7 @@ public class Solution766{
       j = matrix[0][n];
 
       for(int ix = m, jy = 0, kz = 0, la = n;
-              (ix < k) && (jy < matrix[ix].length);
+              (ix < k) && (jy < l);
               ix++, jy++, kz++, la++){
         if((i != matrix[ix][jy]) || (j != matrix[kz][la])){
           return false;

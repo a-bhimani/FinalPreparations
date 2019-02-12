@@ -87,4 +87,24 @@ public class Solution572{
 
     return isSubtree;
   }
+
+  public boolean isSubtreeRecursive(TreeNode s, TreeNode t){
+    if(t == null){
+      return true;
+    }
+
+    if(s == null){
+      if(t != null){
+        return false;
+      }
+    }
+
+    if(s.val == t.val){
+      if(isSubtreeRecursive(s.left, t.left) && isSubtreeRecursive(s.right, t.right)){
+        return true;
+      }
+    }
+
+    return isSubtreeRecursive(t, s.left) || isSubtreeRecursive(t, s.right);
+  }
 }
