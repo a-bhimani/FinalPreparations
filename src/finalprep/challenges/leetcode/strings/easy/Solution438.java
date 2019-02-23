@@ -2,6 +2,7 @@ package finalprep.challenges.leetcode.strings.easy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,52 +13,39 @@ import java.util.Map;
 public class Solution438{
 
   public List<Integer> findAnagrams(String s, String p){
-    List<Integer> lstLx = new ArrayList<>();
-    HashMap<Character, Integer> mpP1;
+    HashMap<Character, Integer> m = new HashMap<>();
+    List<Integer> lstInd = new LinkedList<>();
 
-    if(s == null || s.length() == 0 || p == null || p.length() == 0){
-      return lstLx;
+    for(int ix = 0; ix < p.length(); ix++){
+      m.put(p.charAt(ix), m.getOrDefault(p.charAt(ix), 0) + 1);
     }
 
-    if(s.length() < p.length()){
-      return lstLx;
-    }
+    for(int ix = 0; ix < s.length() - (p.length() - 1); ix++){
+      int i = isAnalogous(s.substring(ix, ix + p.length()), new HashMap(m));
 
-    mpP1 = getCharHashMap(p);
-
-    for(int ix = 0; ix <= s.length() - p.length(); ix++){
-      boolean isAnagram = true;
-      HashMap<Character, Integer> mpS1 = getCharHashMap(s.substring(ix, ix + p.length()));
-
-      for(Map.Entry<Character, Integer> c : mpP1.entrySet()){
-        Integer m = mpS1.getOrDefault(c.getKey(), 0);
-
-        if(c.getValue() != m){
-          isAnagram = false;
-          break;
-        }
-
-        mpS1.remove(c.getKey());
-      }
-
-      if(isAnagram){
-        lstLx.add(ix);
+      if(i == p.length()){
+        lstInd.add(ix);
+      }else{
+        ix += i;
       }
     }
 
-    return lstLx;
+    return lstInd;
   }
 
-  private HashMap<Character, Integer> getCharHashMap(String s){
-    HashMap<Character, Integer> charMap = new HashMap<>();
+  private int isAnalogous(String s, Map<Character, Integer> m){
+    int ct = 0;
 
     for(int ix = 0; ix < s.length(); ix++){
-      Character ch = s.charAt(ix);
-      Integer ct = charMap.getOrDefault(ch, 0) + 1;
+      int c = m.getOrDefault(s.charAt(ix), 0);
 
-      charMap.put(ch, ct);
+      if(c <= 0){
+        return ct;
+      }
+
+      m.put(s.charAt(ix), c - 1);
     }
 
-    return charMap;
+    return s.length();
   }
 }

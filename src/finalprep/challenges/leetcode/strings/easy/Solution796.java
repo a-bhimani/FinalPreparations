@@ -7,7 +7,7 @@ package finalprep.challenges.leetcode.strings.easy;
 public class Solution796{
 
   public boolean rotateString(String A, String B){
-    if(A.length() == B.length()){
+    if(A.length() != B.length()){
       return false;
     }
 

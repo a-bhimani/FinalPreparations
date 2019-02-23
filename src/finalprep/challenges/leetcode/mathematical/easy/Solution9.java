@@ -1,4 +1,4 @@
-package finalprep.challenges.leetcode.strings.easy;
+package finalprep.challenges.leetcode.mathematical.easy;
 
 /**
  *

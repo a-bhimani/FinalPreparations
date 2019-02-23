@@ -26,8 +26,8 @@ public class Solution144{
 
       if(root != null){
         lstNums.add(root.val);
-        stkNodes.add(root.left);
         stkNodes.add(root.right);
+        stkNodes.add(root.left);
       }
     }
 

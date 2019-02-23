@@ -10,20 +10,20 @@ public class LinkedListCopy{
 
   public static ListNode deepCopy(ListNode head){
     ListNode cloneHead = null;
-    ListNode prevCur = null;
+    ListNode link = null;
 
     while(head != null){
-      ListNode link = new ListNode(head.val);
-
-      if(prevCur != null){
-        prevCur.next = link;
+      if(link == null){
+        link = new ListNode(head.val);
+      }else{
+        link.next = new ListNode(head.val);
+        link = link.next;
       }
 
       if(cloneHead == null){
         cloneHead = link;
       }
 
-      prevCur = link;
       head = head.next;
     }
 

@@ -9,40 +9,35 @@ import finalprep.challenges.leetcode.commons.ListNode;
 public class Solution2{
 
   public ListNode addTwoNumbers(ListNode l1, ListNode l2){
-    byte toCarry = 0;
-    ListNode head = null;
-    ListNode prevLink = null;
+    return nextSequence(l1, l2, false);
+  }
 
-    while(l1 != null || l2 != null || toCarry == 1){
-      int currVal = ((l1 != null) ? l1.val : 0) + ((l2 != null) ? l2.val : 0) + toCarry;
-      ListNode currLink;
+  private ListNode nextSequence(ListNode l1, ListNode l2, boolean carry){
+    int newVal = 0;
+    ListNode l;
 
-      toCarry = 0;
-      if(currVal >= 10){
-        currVal = currVal % 10;
-        toCarry = 1;
-      }
-
-      currLink = new ListNode(currVal);
-      if(head == null){
-        head = currLink;
-      }
-
-      if(prevLink != null){
-        prevLink.next = currLink;
-      }
-
-      prevLink = currLink;
-
-      if(l1 != null){
-        l1 = l1.next;
-      }
-
-      if(l2 != null){
-        l2 = l2.next;
-      }
+    if(l1 == null && l2 == null && !carry){
+      return null;
     }
 
-    return head;
+    if(l1 != null){
+      newVal += l1.val;
+    }
+
+    if(l2 != null){
+      newVal += l2.val;
+    }
+
+    if(carry){
+      newVal++;
+    }
+
+    carry = newVal > 9;
+    newVal = newVal % 10;
+
+    l = new ListNode(newVal);
+    l.next = nextSequence(l1 != null ? l1.next : null, l2 != null ? l2.next : null, carry);
+
+    return l;
   }
 }

@@ -1,14 +1,9 @@
 package finalprep.challenges.leetcode.strings.hard;
 
-import static java.lang.System.out;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.Map;
 
 /**
  *
@@ -17,30 +12,42 @@ import java.util.Stack;
 public class Solution30{
 
   public List<Integer> findSubstring(String s, String[] words){
-    int wordCount = words.length;
-    int wordLength = (wordCount > 0) ? words[0].length() : 0;
-    List<Integer> toNum = new ArrayList<>();
-    long startTime = System.nanoTime();
+    int totalLength = 0;
+    List<Integer> lstInd = new LinkedList<>();
+    Map<String, Integer> setWords = new LinkedHashMap<>();
 
-    for(int ix = 0; ix <= s.length() - (wordCount * wordLength); ix++){
-      List<String> matchWords = new ArrayList<>(Arrays.asList(words));
+    if(s.length() == 0 || words.length == 0){
+      return lstInd;
+    }
 
-      for(int jy = ix; jy < ix + (wordCount * wordLength); jy += wordLength){
-        String word = s.substring(jy, jy + wordLength);
+    for(int ix = 0; ix < words.length; ix++){
+      setWords.put(words[ix], setWords.getOrDefault(words[ix], 0) + 1);
+      totalLength += words[ix].length();
+    }
 
-        if(matchWords.contains(word)){
-          matchWords.remove(word);
-        }else{
-          break;
-        }
-      }
-
-      if(matchWords.isEmpty()){
-        toNum.add(ix);
+    for(int ix = 0; ix < s.length() - (totalLength - 1); ix++){
+      if(isWordsShadow(s.substring(ix, ix + totalLength), new LinkedHashMap(setWords))){
+        lstInd.add(ix);
       }
     }
 
-    out.println((System.nanoTime() - startTime) / 1000000);
-    return toNum;
+    return lstInd;
+  }
+
+  private boolean isWordsShadow(String s, Map<String, Integer> words){
+    StringBuilder sb = new StringBuilder(s);
+
+    for(String w : words.keySet()){
+      int ct = words.get(w);
+
+      while(ct > 0){
+        if(sb.indexOf(w) >= 0){
+          sb.replace(sb.indexOf(w), sb.indexOf(w) + w.length(), "");
+        }
+        ct--;
+      }
+    }
+
+    return sb.length() == 0;
   }
 }

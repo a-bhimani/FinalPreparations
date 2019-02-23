@@ -9,38 +9,35 @@ package finalprep.challenges.leetcode.strings.easy;
 public class Solution14{
 
   public String longestCommonPrefix(String[] strs){
+    if(strs.length == 0){
+      return "";
+    }
+
+    boolean doBreak = false;
     int ix = 0;
 
-    if(strs.length > 0 && strs[0] != ""){
-      while(1 == 1){
-        boolean doBreak = false;
-        Character firstChar = null;
+    for(ix = 0; ix < strs[0].length(); ix++){
+      char c = strs[0].charAt(ix);
 
-        for(int jy = 0; jy < strs.length; jy++){
-          if(ix >= strs[jy].length()){
-            doBreak = true;
-            break;
-          }
+      for(int jy = 1; jy < strs.length; jy++){
+        char c2;
 
-          if(jy == 0){
-            firstChar = strs[0].charAt(ix);
-            continue;
-          }
-
-          if(strs[jy].charAt(ix) != firstChar){
-            doBreak = true;
-            break;
-          }
-        }
-
-        if(doBreak){
+        if(ix >= strs[jy].length()){
+          doBreak = true;
           break;
         }
 
-        ix++;
+        c2 = strs[jy].charAt(ix);
+
+        if(c != c2){
+          doBreak = true;
+          break;
+        }
       }
-    }else{
-      return "";
+
+      if(doBreak){
+        break;
+      }
     }
 
     return strs[0].substring(0, ix);
