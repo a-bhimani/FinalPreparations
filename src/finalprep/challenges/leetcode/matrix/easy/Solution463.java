@@ -18,51 +18,23 @@ public class Solution463{
     return 0;
   }
 
-  private int calcPerimeter(int[][] g, int i, int j){
-    int r = 0;
+  private int calcPerimeter(int[][] g, int ix, int jy){
+    int sum = 0;
 
-    if(i < 0 || i >= g.length || j < 0 || j >= g[0].length || g[i][j] != 1){
-      if(g[i][j] == 0){
-        return 1;
-      }
+    if(ix < 0 || ix >= g.length || jy < 0 || jy >= g[ix].length || g[ix][jy] == 0){
+      return 1;
+    }
 
+    if(g[ix][jy] == 2){
       return 0;
     }
 
-    g[i][j] = 2;
+    g[ix][jy] = 2;
+    sum += calcPerimeter(g, ix - 1, jy);
+    sum += calcPerimeter(g, ix + 1, jy);
+    sum += calcPerimeter(g, ix, jy - 1);
+    sum += calcPerimeter(g, ix, jy + 1);
 
-    if(j - 1 >= -1){
-      if((j - 1 == -1) || g[i][j - 1] == 0){
-        r++;
-      }else{
-        r += calcPerimeter(g, i, j - 1);
-      }
-    }
-
-    if(j + 1 <= g[0].length){
-      if((j + 1 == g[0].length) || g[i][j + 1] == 0){
-        r++;
-      }else{
-        r += calcPerimeter(g, i, j + 1);
-      }
-    }
-
-    if(i - 1 >= -1){
-      if((i - 1 == -1) || g[i - 1][j] == 0){
-        r++;
-      }else{
-        r += calcPerimeter(g, i - 1, j);
-      }
-    }
-
-    if(i + 1 <= g.length){
-      if((i + 1 == g.length) || g[i + 1][j] == 0){
-        r++;
-      }else{
-        r += calcPerimeter(g, i + 1, j);
-      }
-    }
-
-    return r;
+    return sum;
   }
 }

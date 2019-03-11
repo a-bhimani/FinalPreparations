@@ -7,20 +7,22 @@ package finalprep.challenges.leetcode.matrix.medium;
 public class Solution240{
 
   public boolean searchMatrix(int[][] matrix, int target){
-    if(matrix.length > 0){
-      for(int ix = 0; ix < matrix[0].length; ix++){
-        int jy = 0, kz = matrix.length - 1;
+    if(matrix.length == 0 || matrix[0].length == 0){
+      return false;
+    }
 
-        if(target >= matrix[jy][ix] && target <= matrix[kz][ix]){
-          while(jy <= kz){
-            if(target == matrix[jy][ix] || target == matrix[kz][ix]){
-              return true;
-            }
+    int ix = 0;
+    int jy = matrix[ix].length - 1;
 
-            jy++;
-            kz--;
-          }
-        }
+    while(ix < matrix.length && jy >= 0){
+      if(matrix[ix][jy] == target){
+        return true;
+      }
+
+      if(matrix[ix][jy] > target){
+        jy--;
+      }else{
+        ix++;
       }
     }
 

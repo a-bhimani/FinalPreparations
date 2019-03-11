@@ -14,18 +14,18 @@ public class Solution830{
     List<List<Integer>> toReturn = new ArrayList<List<Integer>>();
 
     for(int ix = 0; ix < S.length(); ix++){
-      int ch = S.charAt(ix);
-      int count = 1;
+      int jy = ix;
+      Character ch = S.charAt(ix);
+      int count = 0;
 
-      ix++;
-      while(ix < S.length() && ch == S.charAt(ix)){
-        ix++;
+      while(jy < S.length() && ch.equals(S.charAt(jy))){
+        jy++;
         count++;
       }
 
-      ix--;
       if(count >= 3){
-        toReturn.add(Arrays.asList(new Integer[]{ix - count + 1, ix}));
+        toReturn.add(Arrays.asList(new Integer[]{ix, jy - 1}));
+        ix = jy - 1;
       }
 
     }

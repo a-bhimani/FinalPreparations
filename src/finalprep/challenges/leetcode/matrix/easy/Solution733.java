@@ -13,13 +13,7 @@ public class Solution733{
       return image;
     }
 
-    newImg = new int[image.length][image[0].length];
-    for(int ix = 0; ix < image.length; ix++){
-      for(int jy = 0; jy < image[ix].length; jy++){
-        newImg[ix][jy] = image[ix][jy];
-      }
-    }
-
+    newImg = image.clone();
     borderFill(newImg, sr, sc, image[sr][sc], newColor);
 
     return newImg;

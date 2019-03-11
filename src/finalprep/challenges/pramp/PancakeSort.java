@@ -1,5 +1,7 @@
 package finalprep.challenges.pramp;
 
+import finalprep.sorting.Sorter;
+
 /**
  *
  * @author adb
@@ -8,6 +10,8 @@ public class PancakeSort{
 
   public static int[] PancakeSort(int[] arr){
     // your code goes here
+    Sorter.printArray("Array", arr);
+
     for(int i = arr.length - 1; i >= 0; i--){
       int maxIndex = -1;
       int maxNum = Integer.MIN_VALUE;
@@ -21,8 +25,10 @@ public class PancakeSort{
 
       flip(arr, maxIndex + 1);
       flip(arr, i + 1);
+      Sorter.printArray("i=" + i, arr);
     }
 
+    Sorter.printArray("Pancake Sort", arr);
     return arr;
   }
 

@@ -18,10 +18,6 @@ public class Solution665{
 
     numsClone = Arrays.copyOf(nums, nums.length);
 
-    for(int ix = 0; ix < nums.length; ix++){
-      numsClone[ix] = nums[ix];
-    }
-
     for(int ix = 1, la = nums.length - 2; ix < numsClone.length; ix++, la--){
       if(numsClone[ix] < numsClone[ix - 1]){
         numsClone[ix] = numsClone[ix - 1];

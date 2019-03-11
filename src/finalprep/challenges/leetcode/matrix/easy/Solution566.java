@@ -32,7 +32,7 @@ public class Solution566{
           y = 0;
         }
 
-        arrResult[ix][jy] = 1;
+        //arrResult[ix][jy] = 1;
         arrResult[ix][jy] = nums[x][y];
         y++;
       }

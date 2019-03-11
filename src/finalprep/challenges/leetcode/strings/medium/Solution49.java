@@ -15,39 +15,22 @@ import java.util.Set;
 public class Solution49{
 
   public List<List<String>> groupAnagrams(String[] strs){
-    List<List<String>> lstAng = new ArrayList<>();
-    boolean[] angInfo = new boolean[strs.length];
+    Map<String, List<String>> mp = new HashMap<>();
 
     for(int ix = 0; ix < strs.length; ix++){
-      List<String> lstGrp;
-      char[] gChar;
-      Set<String> set = new HashSet<>();
+      char[] strChars = strs[ix].toCharArray();
+      String sortString;
 
-      if(angInfo[ix]){
-        continue;
+      Arrays.sort(strChars);
+      sortString = String.valueOf(strChars);
+
+      if(!mp.containsKey(sortString)){
+        mp.put(sortString, new ArrayList());
       }
 
-      lstGrp = new ArrayList<>();
-      lstGrp.add(strs[ix]);
-      gChar = strs[ix].toCharArray();
-      Arrays.sort(gChar);
-      set.add(new String(gChar));
-
-      for(int jy = ix + 1; jy < strs.length; jy++){
-        if(strs[ix].length() == strs[jy].length()){
-          gChar = strs[jy].toCharArray();
-          Arrays.sort(gChar);
-
-          if(set.contains(new String(gChar))){
-            lstGrp.add(strs[jy]);
-            angInfo[jy] = true;
-          }
-        }
-      }
-
-      lstAng.add(lstGrp);
+      mp.get(sortString).add(strs[ix]);
     }
 
-    return lstAng;
+    return new ArrayList(mp.values());
   }
 }
