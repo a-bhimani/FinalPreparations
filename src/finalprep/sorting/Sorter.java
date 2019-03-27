@@ -96,10 +96,10 @@ public class Sorter{
     for(int ix = 1; ix < nums.length; ix++){
       out.println("C:" + nums[ix]);
 
-      for(int jy = ix; jy > 0; jy--){
-        if(nums[jy] < nums[jy - 1]){
-          swapNums(nums, jy, jy - 1);
-        }
+      int jy = ix;
+      while(jy > 0 && nums[jy] < nums[jy - 1]){
+        swapNums(nums, jy, jy - 1);
+        jy--;
       }
 
       printArray("i=" + ix, nums);

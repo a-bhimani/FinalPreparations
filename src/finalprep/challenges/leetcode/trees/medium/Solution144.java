@@ -21,7 +21,7 @@ public class Solution144{
     Stack<TreeNode> stkNodes = new Stack<>();
 
     stkNodes.add(root);
-    while(!stkNodes.empty()){
+    while(!stkNodes.isEmpty()){
       root = stkNodes.pop();
 
       if(root != null){

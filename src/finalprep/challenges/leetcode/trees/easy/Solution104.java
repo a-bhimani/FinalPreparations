@@ -1,4 +1,3 @@
-package finalprep.challenges.leetcode.trees.easy;
 
 import finalprep.challenges.leetcode.commons.TreeNode;
 import java.util.LinkedList;

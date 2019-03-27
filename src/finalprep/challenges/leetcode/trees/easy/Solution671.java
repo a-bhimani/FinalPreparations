@@ -3,27 +3,24 @@ package finalprep.challenges.leetcode.trees.easy;
 import finalprep.challenges.leetcode.commons.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
  * @author adb
  */
-public class Solution437{
+public class Solution671{
 
-  public int pathSum(TreeNode root, int sum){
-    int count = 0;
+  public int findSecondMinimumValue(TreeNode root){
+    Set<Integer> mp = new TreeSet<>();
     Queue<TreeNode> qNodes = new LinkedList<>();
-
-    if(root == null){
-      return 0;
-    }
 
     qNodes.offer(root);
     while(!qNodes.isEmpty()){
       root = qNodes.poll();
 
-      count += pathSum(root, 0, sum);
-
+      mp.add(root.val);
       if(root.left != null){
         qNodes.offer(root.left);
       }
@@ -33,20 +30,10 @@ public class Solution437{
       }
     }
 
-    return count;
-  }
-
-  private int pathSum(TreeNode root, int s, int sum){
-    if(root == null){
-      return 0;
+    if(mp.size() == 1){
+      return -1;
     }
 
-    s += root.val;
-
-    if(s == sum){
-      return 1;
-    }
-
-    return pathSum(root.left, s, sum) + pathSum(root.right, s, sum);
+    return (int)mp.toArray()[1];
   }
 }

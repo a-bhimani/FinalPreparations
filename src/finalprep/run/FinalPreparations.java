@@ -31,15 +31,5 @@ public class FinalPreparations{
 
   public static void main(String[] args){
 
-//    HashSet<String> words = new HashSet<>();
-//    Collections.addAll(words, new String[]{"jumped", "over", "some", "thing", "something"});
-//    List<String> l = WordBreak.wordBreak("jumpedoversomething", words);
-//    out.println(l.toString());
-    //out.print(new Solution459().repeatedSubstringPattern("ababab"));
-    int[] a = new int[]{9, 87, 7, 6, 5, 4, 3, 2, 1};
-    a = new int[]{7, 9, 5, 8, 3};
-    new Sorter(a).quickSort();
-
-    //new Solution92().reverseBetween(m1, 2, 3).PrintR();
   }
 }
